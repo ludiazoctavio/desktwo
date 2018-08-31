@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% block title %}Departments{% endblock %}
+{% block content %}
+<h1>Departments</h1>
+<h2>Departments List</h2>
+<div>
+	<a class="btn btn-primary" href="{% url 'department:create' %}">Add Department</a>
+</div>
+<table class="table table-hover">
+    <thead>
+	<tr>
+	    <th>Name</th>
+		<th>Latitud</th>
+	    <th>Longitud</th>
+	    <th></th>
+	</tr>
+	</thead>
+	<tbody>
+	    {% for object in object_list %}
+	        <tr>
+	            <td>{{ object.name }} </td>
+	            <td>{{ object.latitude }} </td>
+	            <td>{{ object.longitude }} </td>
+	            <td>
+	                 <a href="{% url 'department:update' object.id %}"><i class="far fa-edit"></i></a>
+	                 <a href="{% url 'department:delete' object.id %}"><i class="far fa-trash-alt"></i></a>
+	            </td>
+	        </tr>
+	    {% empty %}
+	        <tr>
+	            <td><a href="{% url 'department:create' %}">Add Department</a></td>
+	        </tr>
+	    {% endfor %}
+	</tbody>
+</table>
+{% endblock %}

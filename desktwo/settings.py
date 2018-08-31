@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    # desktwo apps
+    'tickets.apps.TicketsConfig',
+    'companies.apps.CompaniesConfig',
+
+    # Install Apps
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -113,8 +121,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGOUT_REDIRECT_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# CKEditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
